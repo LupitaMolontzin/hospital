@@ -1,0 +1,165 @@
+
+  <% if (!user) { %>
+  <!-- Contenedor Principal Centrado -->
+<!-- Sección de Introducción al Hospital -->
+<section class="intro-section text-center py-5">
+  <div class="container">
+    <h2 class="display-4">Bienvenidos a MyHospital</h2>
+    <p class="lead">Comprometidos con tu salud y bienestar, brindamos atención médica de calidad.</p>
+    <img src="/images/hospital-building.jpg" class="img-fluid rounded" alt="Hospital MyHospital">
+  </div>
+</section>
+
+<!-- Sección de Servicios Médicos -->
+<section id="serviciosmedicos" class="services-section py-5 bg-light">
+<div class="container">
+  <h2 class="text-center mb-4">Nuestros Servicios Médicos</h2>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card">
+        <img src="/images/doctor.jpg" class="card-img-top" alt="Consultas Médicas">
+        <div class="card-body">
+          <h5 class="card-title">Consultas Médicas</h5>
+          <p class="card-text">Ofrecemos consultas médicas generales y especializadas para toda la familia.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <img src="/images/surgery.jpg" class="card-img-top" alt="Cirugía">
+        <div class="card-body">
+          <h5 class="card-title">Cirugía</h5>
+          <p class="card-text">Contamos con quirófanos modernos para realizar cirugías de alta complejidad.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <img src="/images/ambulance.jpg" class="card-img-top" alt="Emergencias">
+        <div class="card-body">
+          <h5 class="card-title">Emergencias</h5>
+          <p class="card-text">Atención inmediata para emergencias médicas las 24 horas del día.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- Sección de Contacto -->
+<section id="contacto" class="contact-section py-5">
+<div class="container">
+  <h2 class="text-center mb-4">Contáctanos</h2>
+  <p class="text-center">Si tienes alguna pregunta o necesitas más información, no dudes en ponerte en contacto con nosotros.</p>
+  <div class="row">
+    <div class="col-md-4">
+      <h5>Dirección</h5>
+      <p>Venustiano Carranza #453, Apatzingán, México</p>
+    </div>
+    <div class="col-md-4">
+      <h5>Teléfono</h5>
+      <p>+52 (453) 103-9175</p>
+    </div>
+    <div class="col-md-4">
+      <h5>Correo Electrónico</h5>
+      <p>myhospital@gmail.com</p>
+    </div>
+  </div>
+</div>
+</section>
+
+
+<!-- Pie de Página -->
+<footer class="footer py-3 bg-dark text-white text-center">
+  <div class="container">
+    <p>&copy; 2024 MyHospital. Todos los derechos reservados.</p>
+    <p>
+      <a href="/privacy-policy" class="text-white">Política de Privacidad</a> |
+      <a href="/terms" class="text-white">Términos y Condiciones</a>
+    </p>
+  </div>
+</footer>
+  <% } else { %>
+ <!-- Contenedor Principal Centrado -->
+<!-- Sección de Introducción al Hospital -->
+<section class="intro-section text-center py-5">
+  <div class="container">
+    <h2 class="display-4">Bienvenidos a MyHospital <%= user.name %></h2>
+    <p class="lead">Comprometidos con tu salud y bienestar, brindamos atención médica de calidad.</p>
+    <img src="/images/hospital-building.jpg" class="img-fluid rounded" alt="Hospital MyHospital">
+  </div>
+</section>
+
+<!-- Sección de Servicios Médicos -->
+<section id="serviciosmedicos" class="services-section py-5 bg-light">
+<div class="container">
+  <h2 class="text-center mb-4">Nuestros Servicios Médicos</h2>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card">
+        <img src="/images/doctor.jpg" class="card-img-top" alt="Consultas Médicas">
+        <div class="card-body">
+          <h5 class="card-title">Consultas Médicas</h5>
+          <p class="card-text">Ofrecemos consultas médicas generales y especializadas para toda la familia.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <img src="/images/surgery.jpg" class="card-img-top" alt="Cirugía">
+        <div class="card-body">
+          <h5 class="card-title">Cirugía</h5>
+          <p class="card-text">Contamos con quirófanos modernos para realizar cirugías de alta complejidad.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <img src="/images/ambulance.jpg" class="card-img-top" alt="Emergencias">
+        <div class="card-body">
+          <h5 class="card-title">Emergencias</h5>
+          <p class="card-text">Atención inmediata para emergencias médicas las 24 horas del día.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- Sección de Contacto -->
+<section id="contacto" class="contact-section py-5">
+<div class="container">
+  <h2 class="text-center mb-4">Contáctanos</h2>
+  <p class="text-center">Si tienes alguna pregunta o necesitas más información, no dudes en ponerte en contacto con nosotros.</p>
+  <div class="row">
+    <div class="col-md-4">
+      <h5>Dirección</h5>
+      <p>Venustiano Carranza #453, Apatzingán, México</p>
+    </div>
+    <div class="col-md-4">
+      <h5>Teléfono</h5>
+      <p>+52 (453) 103-9175</p>
+    </div>
+    <div class="col-md-4">
+      <h5>Correo Electrónico</h5>
+      <p>myhospital@gmail.com</p>
+    </div>
+  </div>
+</div>
+</section>
+
+
+<!-- Pie de Página -->
+<footer class="footer py-3 bg-dark text-white text-center">
+  <div class="container">
+    <p>&copy; 2024 MyHospital. Todos los derechos reservados.</p>
+    <p>
+      <a href="/privacy-policy" class="text-white">Política de Privacidad</a> |
+      <a href="/terms" class="text-white">Términos y Condiciones</a>
+    </p>
+  </div>
+</footer>
+  <% } %>
+
+  
+

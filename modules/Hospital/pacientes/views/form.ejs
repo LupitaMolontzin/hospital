@@ -1,0 +1,69 @@
+  <div class="centered-container">
+    <div class="form-container">
+      <a href="/<%= moduleName %>/list" class="close-btn">&times;</a>
+      <h2 class="text-center mb-4"><%= typeform === 'edit' ? 'Editar': 'Registrar' %> Paciente</h2>
+      <% if (Array.isArray(error_msg) && error_msg.length > 0) { %>
+        <div class="alert alert-danger">
+          <% error_msg.forEach(function(msg) { %>
+            <p class="mb-0"><%= msg %></p>
+          <% }) %>
+        </div>
+      <% } %>
+      <form action="/<%= moduleName %>/form/new" method="POST">
+        <div class="form-group">
+          <label for="nombre">Nombre Completo</label>
+          <input type="text" class="form-control" id="nombre" name="nombre" 
+                 value="<%= typeof item !== 'undefined' ? item.nombre : '' %>" required>
+        </div>
+
+        <div class="form-group">
+          <label for="edad">Edad</label>
+          <input type="number" class="form-control" id="edad" name="edad" 
+                 value="<%= typeof item !== 'undefined' ? item.edad : '' %>" 
+                 min="0" max="120" required>
+        </div>
+
+        <div class="form-group">
+          <label for="genero">Género</label>
+          <select class="form-control" id="genero" name="genero" required>
+            <option value="">Seleccione género</option>
+            <% const generos = ['Masculino', 'Femenino', 'Otro'] %>
+            <% generos.forEach(function(genero) { %>
+              <option value="<%= genero %>" 
+                      <%= typeof item !== 'undefined' && item.genero === genero ? 'selected' : '' %>>
+                <%= genero %>
+              </option>
+            <% }) %>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="diagnostico">Diagnóstico</label>
+          <textarea class="form-control" id="diagnostico" name="diagnostico" rows="3" required><%= typeof item !== 'undefined' ? item.diagnostico : '' %></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="habitacion">Habitación</label>
+          <input type="text" class="form-control" id="habitacion" name="habitacion" 
+                 value="<%= typeof item !== 'undefined' ? item.habitacion : '' %>" required>
+        </div>
+
+        <div class="form-group">
+          <label for="fechaIngreso">Fecha de Ingreso</label>
+          <input type="date" class="form-control" id="fechaIngreso" name="fechaIngreso" 
+                 value="<%= typeof item !== 'undefined' ? item.fechaIngreso.toISOString().split('T')[0] : new Date().toISOString().split('T')[0] %>" required>
+        </div>
+
+        <div class="form-group">
+          <label for="expediente">Número de Expediente</label>
+          <input type="text" class="form-control" id="expediente" name="expediente" 
+                 value="<%= typeof item !== 'undefined' ? item.expediente : '' %>" required>
+        </div>
+
+        <div class="button-container">
+          <button type="submit" class="btn btn-primary">Guardar</button>
+          <a class="btn btn-secondary" href="/<%= moduleName %>/list">Cancelar</a>
+        </div>
+      </form>
+    </div>
+  </div>

@@ -1,0 +1,45 @@
+  <div class="centered-container">
+    <div class="form-container">
+      <a href="/<%= moduleName %>/list" class="close-btn">&times;</a>
+      <h2 class="text-center mb-4"><%= typeform === 'edit' ? 'Editar': 'Crear' %> <%= title %></h2>
+      <% if (Array.isArray(error_msg) && error_msg.length > 0) { %>
+        <div class="alert alert-danger">
+          <% error_msg.forEach(function(msg) { %>
+            <p class="mb-0"><%= msg %></p>
+          <% }) %>
+        </div>
+      <% } %>
+
+      <form action="/<%= moduleName %>/<%= typeform === 'edit' ? 'areas/edit/' + item._id : 'areas/create' %>" method="POST" enctype="multipart/form-data">
+        <% if (typeform === 'edit') { %>
+          <input type="hidden" name="_method" value="PUT">
+        <% } %>
+
+        <div class="form-group">
+          <label for="nombre">Nombre del Área</label>
+          <input type="text" class="form-control" id="nombre" name="nombre" value="<%= typeof item !== 'undefined' ? item.nombre : '' %>" required>
+        </div>
+        <div class="form-group">
+          <label for="descripcion">Descripción</label>
+          <input type="text" class="form-control" id="descripcion" name="descripcion" value="<%= typeof item !== 'undefined' ? item.descripcion : '' %>" required>
+        </div>
+        <div class="form-group">
+          <label for="piso">Piso</label>
+          <input type="number" class="form-control" id="piso" name="piso" value="<%= typeof item !== 'undefined' ? item.piso : '' %>" required>
+        </div>
+        <div class="form-group">
+          <label for="capacidad">Capacidad de pacientes</label>
+          <input type="number" class="form-control" id="capacidad" name="capacidad" value="<%= typeof item !== 'undefined' ? item.capacidad : '' %>" required>
+        </div>
+        <div class="form-group">
+          <label for="especialidad">Especialidad médica</label>
+          <input type="text" class="form-control" id="especialidad" name="especialidad" value="<%= typeof item !== 'undefined' ? item.especialidad : '' %>">
+        </div>
+
+        <div class="button-container">
+          <button type="submit" class="btn btn-primary">Guardar</button>
+          <a class="btn btn-secondary" href="/<%= moduleName %>/list">Cancelar</a>
+        </div>
+      </form>
+    </div>
+  </div>

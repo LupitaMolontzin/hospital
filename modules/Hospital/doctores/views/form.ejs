@@ -1,0 +1,49 @@
+<div class="container mt-5">
+    <h2><%= typeform === 'new' ? 'Nuevo Doctor' : 'Editar Doctor' %></h2>
+    
+    <form action="/Hospital/doctores/<%= typeform === 'new' ? 'create' : 'update/' + item._id %>" method="POST">
+        <div class="form-group">
+            <label for="nombre">Nombre</label>
+            <input type="text" class="form-control" id="nombre" name="nombre" 
+                   value="<%= typeof item !== 'undefined' && item.nombre ? item.nombre : '' %>" required>
+        </div>
+
+        <div class="form-group">
+            <label for="cedula">Cédula</label>
+            <input type="text" class="form-control" id="cedula" name="cedula" 
+                   value="<%= typeof item !== 'undefined' && item.cedula ? item.cedula : '' %>" required>
+        </div>
+
+        <div class="form-group">
+            <label for="especialidad">Especialidad</label>
+            <input type="text" class="form-control" id="especialidad" name="especialidad" 
+                   value="<%= typeof item !== 'undefined' && item.especialidad ? item.especialidad : '' %>" required>
+        </div>
+
+        <div class="form-group">
+            <label for="turno">Turno</label>
+            <select class="form-control" id="turno" name="turno" required>
+                <option value="matutino" <%= typeof item !== 'undefined' && item.turno === 'matutino' ? 'selected' : '' %>>Matutino</option>
+                <option value="vespertino" <%= typeof item !== 'undefined' && item.turno === 'vespertino' ? 'selected' : '' %>>Vespertino</option>
+                <option value="nocturno" <%= typeof item !== 'undefined' && item.turno === 'nocturno' ? 'selected' : '' %>>Nocturno</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="telefono">Teléfono</label>
+            <input type="tel" class="form-control" id="telefono" name="telefono" 
+                   value="<%= typeof item !== 'undefined' && item.telefono ? item.telefono : '' %>" required>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="email" name="email" 
+                   value="<%= typeof item !== 'undefined' && item.email ? item.email : '' %>" required>
+        </div>
+
+        <div class="button-container mt-3">
+            <button type="submit" class="btn btn-primary">Guardar</button>
+            <a href="/Hospital/doctores" class="btn btn-secondary">Cancelar</a>
+        </div>
+    </form>
+</div>

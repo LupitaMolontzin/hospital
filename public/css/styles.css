@@ -1,0 +1,205 @@
+
+  html, body {
+    height: 100%;
+  }
+  html {
+    scroll-behavior: smooth;
+  }  
+  
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding-top: 110px;
+    font-family: 'Poppins', sans-serif; /* Usamos la fuente Poppins */
+  }
+  
+  /* Estilo para el primer menú (Navbar superior) */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1030; /* Ajusta este valor para asegurarte de que el primer menú esté encima */
+}
+
+/* Estilo para el segundo menú (Navbar inferior) */
+.custom-navbar {
+  margin-top: 56px;
+  z-index: 1020; /* Asegúrate de que sea menor que el primero */
+}
+
+.navbar-nav {
+  flex-direction: row;
+}
+
+.nav-item .dropdown-menu {
+  right: 0; /* Asegura que el menú desplegable se alinee a la derecha */
+  left: auto;
+}
+/* Estilo para el segundo menú (Navbar inferior) */
+.custom-navbar {
+  margin-top: 56px;
+  z-index: 1020; /* Asegúrate de que sea menor que el primero */
+}
+
+/* Estilos para el ul dentro del navbar */
+.custom-navbar-nav {
+  padding: 0 180px; /* Espaciado horizontal de 180px */
+  display: flex; /* Para alinear los elementos de forma horizontal */
+  width: 100%; /* Para ocupar todo el ancho disponible */
+  justify-content: space-between; /* Para distribuir los ítems de forma equitativa */
+}
+
+/* Ajuste de los elementos nav-item */
+.custom-navbar-nav .nav-item {
+  text-align: center; /* Centra los elementos dentro de su espacio */
+}
+  
+  .centered-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 140px; /* Ajusta este valor a la altura de tu navbar */
+  }
+  
+  .form-container {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #6c757d;
+    transition: color 0.3s ease;
+  }
+  
+  .close-btn:hover {
+    color: #343a40;
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px; /* Espacio entre los botones */
+  }
+  
+  .avatar-preview {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ddd;
+    cursor: pointer;
+  }
+  
+  .profile-thumbnail,
+  .profile-img {
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+
+  .loading-animation {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    z-index: 1000;
+  }
+  
+  .spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid rgba(0, 0, 0, 0.1);
+    border-top: 5px solid #007bff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  /* Estilos adicionales para las secciones */
+.intro-section {
+  background-color: #f8f9fa;
+}
+
+.intro-section img {
+  max-width: 70%; /* Ajusta el tamaño al 80% del ancho disponible */
+  height: auto;   /* Mantiene la proporción de la imagen */
+  margin: 0 auto; /* Centra la imagen */
+}
+
+.services-section .card {
+  margin-bottom: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Efecto de transición */
+}
+
+.services-section .card:hover {
+  transform: translateY(-10px); /* Hace que la tarjeta se eleve */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Agrega sombra al pasar el mouse */
+}
+
+.services-section img {
+  max-width: 100%; /* Asegura que las imágenes ocupen el ancho completo de la tarjeta */
+  height: auto; /* Mantiene la proporción de la imagen */
+}
+
+.services-section .card-body {
+  text-align: center; /* Centra el texto dentro de las tarjetas */
+}
+
+.services-section .card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.services-section .card-text {
+  font-size: 1rem;
+  color: #555;
+}
+
+.contact-section {
+  background-color: #f1f1f1;
+}
+
+.contact-section h2, .contact-section p {
+  margin-bottom: 30px;
+}
+
+/* Estilos para el pie de página */
+.footer {
+  background-color: #343a40;
+  color: white;
+}
+
+.footer a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}

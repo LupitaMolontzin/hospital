@@ -1,0 +1,72 @@
+  <div class="container mt-5">
+    <h2>Lista de Pacientes</h2>
+    <div class="d-flex justify-content-between align-items-center mb-1" style="min-height: 100px;">
+      <% if (user.role === 'admin') { %>
+      <a class="btn btn-primary" href="/<%= moduleName %>/form/new">Registrar Paciente</a>
+      <% } %>
+      <form class="form-inline" method="GET" action="<%= moduleName %>">
+        <input class="form-control mr-sm-2" type="search" placeholder="Buscar paciente" aria-label="Buscar" name="search" value="<%= typeof searchQuery !== 'undefined' ? searchQuery : '' %>">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+      </form>
+      <%- include('../../../../views/partials/pages',{ modelView: 'itemes' }) %>
+    </div>
+
+    <div class="row mb-4 mt-4">
+        <div class="col-12">
+          <div style="margin: 20px 0;">
+            <a href="/<%= moduleName %>/form/new" class="btn btn-primary">Agregar Paciente</a>
+    </div>
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Nombre</th>
+          <th>Edad</th>
+          <th>Género</th>
+          <th>Diagnóstico</th>
+          <th>Habitación</th>
+          <th>Fecha de Ingreso</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% results.forEach((item, index) => { %>
+          <tr>
+            <td><%= index + 1 %></td>
+            <td><%= item.nombre %></td>
+            <td><%= item.edad %></td>
+            <td><%= item.genero %></td>
+            <td><%= item.diagnostico %></td>
+            <td><%= item.habitacion %></td>
+            <td><%= new Date(item.fechaIngreso).toLocaleDateString() %></td>
+            <td>
+              <a href="/<%= moduleName %>/form/edit/<%= item._id %>" class="btn btn-sm btn-warning">Editar</a>
+              <form action="/<%= moduleName %>/form/delete/<%= item._id %>" method="POST" class="d-inline">
+                <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('¿Está seguro de eliminar este paciente?');">Eliminar</button>
+              </form>
+              <a href="/Hospital/pacientes/download-pdf/<%= item._id %>" class="btn btn-sm btn-info">
+                <i class="fas fa-file-pdf"></i> Historial Médico
+              </a>
+            </td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+
+  <style>
+    .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+        color: white;
+        font-weight: bold;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .btn-primary:hover {
+        background-color: #0056b3;
+        border-color: #0056b3;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+  </style>
